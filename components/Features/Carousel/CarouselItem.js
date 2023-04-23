@@ -11,10 +11,14 @@
  */
 
 const CarouselItem = (data, isActive) => `
-<a href="../../../pages/NewsDetailPage.html" class="carousel-item ${isActive ? 'active' : ''}">
+<a href="../../../../midterm-demo/pages/NewsDetailPage.html" class="carousel-item ${
+  isActive ? "active" : ""
+}">
     <div class="custom-carousel-item">
         <div class="carousel-thumbnail-container zoom-hover">
-            <img class="carousel-thumbnail" src=${data.imgPath} alt="Carousel thumbnail" />
+            <img class="carousel-thumbnail" src=${
+              data.imgPath
+            } alt="Carousel thumbnail" />
         </div>
         <div class="carousel-info">
             <h5 class="carousel-title">${data.title}</h5>

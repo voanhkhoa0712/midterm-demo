@@ -1,37 +1,44 @@
-import NewsItem from '../components/NewsItem/NewsItem.js';
-import NavItem from '../components/DashboardPage/Navbar/NavItem.js';
-import PaperItem from '../components/DashboardPage/PaperDashboard/PaperItem.js';
-import CommentAreaItem from '../components/NewsDetailPage/CommentArea/CommentAreaItem/CommentAreaItem.js';
-import SuggestionItem from '../components/NewsDetailPage/Suggestion/SuggestionItem/SuggestionItem.js';
+import NewsItem from "../../midterm-demo/components/NewsItem/NewsItem.js";
+import NavItem from "../../midterm-demo/components/DashboardPage/Navbar/NavItem.js";
+import PaperItem from "../../midterm-demo/components/DashboardPage/PaperDashboard/PaperItem.js";
+import CommentAreaItem from "../../midterm-demo/components/NewsDetailPage/CommentArea/CommentAreaItem/CommentAreaItem.js";
+import SuggestionItem from "../../midterm-demo/components/NewsDetailPage/Suggestion/SuggestionItem/SuggestionItem.js";
 
-export const dataToNewsItemList = (data, context) => data.map((d) => NewsItem(d, context));
+export const dataToNewsItemList = (data, context) =>
+  data.map((d) => NewsItem(d, context));
 
 export const dataToNavItemList = (data) => data.map((d) => NavItem(d));
 
-export const dataToPaperItemList = (data, context) => data.map((d) => PaperItem(d, context));
+export const dataToPaperItemList = (data, context) =>
+  data.map((d) => PaperItem(d, context));
 
-export const dataToCommentAreaItemList = (data) => data.map((d) => CommentAreaItem(d));
+export const dataToCommentAreaItemList = (data) =>
+  data.map((d) => CommentAreaItem(d));
 
-export const dataToSuggestionItemList = (data) => data.map((d) => SuggestionItem(d));
+export const dataToSuggestionItemList = (data) =>
+  data.map((d) => SuggestionItem(d));
 
 export const dataToDescriptionList = (data) =>
   data.map((d) => {
-    if (d.type === 'text') {
+    if (d.type === "text") {
       return `<p class="desc-text">${d.value}</p>`;
-    } else if (d.type === 'image') {
+    } else if (d.type === "image") {
       return `
     <div class="desc-image-container">
-      <img class="desc-image" src=${d.value.src} alt="Illustration" />
+      <img class="desc-image" src=${d.value.source} alt="Illustration" />
       <p class="desc-image-caption">${d.value.caption}</p>
     </div>`;
     }
 
-    return '';
+    return "";
   });
 
 export const dataToTagList = (tags, cate) =>
   tags.map(
-    (tag) => `<a href="#" class="detail-tag" data-cate=${cate}>${tag}</a>${tag === tags[tags.length - 1] ? '' : ','}`,
+    (tag) =>
+      `<a href="#" class="detail-tag" data-cate=${cate}>${tag}</a>${
+        tag === tags[tags.length - 1] ? "" : ","
+      }`
   );
 
 export const categoryToAdminList = (categories) =>
@@ -82,7 +89,9 @@ export const postToAdminList = (posts) =>
     <div class="admin-dashboard-item">
         <div class="admin-dashboard-item-context">
             <div class="news-thumbnail-container zoom-hover">
-                <img class="news-thumbnail" src=${post.imgPath} alt="Thumbnail" />
+                <img class="news-thumbnail" src=${
+                  post.imgPath
+                } alt="Thumbnail" />
             </div>
             <div class="news-info">
                 <h3 class="news-title">${post.title}</h3>
@@ -113,7 +122,7 @@ export const postToAdminList = (posts) =>
             </div>
 
             ${
-              post.status === 'Bản nháp' || post.status === 'Chờ duyệt'
+              post.status === "Bản nháp" || post.status === "Chờ duyệt"
                 ? `
             <div class="news-footer-icon-container admin-approve-icon">
                 <i class="fa-solid fa-check news-footer-icon"></i>
@@ -124,7 +133,7 @@ export const postToAdminList = (posts) =>
                 <i class="fa-solid fa-xmark news-footer-icon"></i>
                 <div class="tooltip news-footer-icon-tooltip">Reject</div>
             </div>`
-                : ''
+                : ""
             }
         </div>
     </div>
@@ -139,23 +148,23 @@ export const userToAdminList = (users) =>
         <div class="admin-dashboard-item-context">${user.role}</div>
         <div class="admin-dashboard-item-action">
             ${
-              user.role === 'Biên tập viên'
+              user.role === "Biên tập viên"
                 ? `
                     <div class="news-footer-icon-container news-feedback-icon" id="change-category">
                         <i class="fa-solid fa-gear news-footer-icon"></i>
                         <div class="tooltip news-footer-icon-tooltip">Change Catetory</div>
                     </div>`
-                : ''
+                : ""
             }
 
             ${
-              user.role === 'Người dùng' || user.role === 'Độc giả'
+              user.role === "Người dùng" || user.role === "Độc giả"
                 ? `
                     <div class="news-footer-icon-container news-feedback-icon" id="extend-premium">
                         <i class="fa-solid fa-gem news-footer-icon"></i>
                         <div class="tooltip news-footer-icon-tooltip">Extend Premium</div>
                     </div>`
-                : ''
+                : ""
             }
         </div>
     </div>
@@ -163,7 +172,7 @@ export const userToAdminList = (users) =>
   });
 
 export function createElementFromHTML(htmlString) {
-  var div = document.createElement('div');
+  var div = document.createElement("div");
   div.innerHTML = htmlString.trim();
 
   // Change this to div.childNodes to support multiple top-level nodes.

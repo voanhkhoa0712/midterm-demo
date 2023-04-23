@@ -1,45 +1,45 @@
-import { CATEGORY } from '../../utils/constants.js';
+import { CATEGORY } from "../../../midterm-demo/utils/constants.js";
 
 const category_data = [
   {
-    title: 'Thời sự',
-    url: '#',
+    title: "Thời sự",
+    url: "#",
   },
   {
-    title: 'Xã hội',
-    url: '#',
+    title: "Xã hội",
+    url: "#",
   },
   {
-    title: 'Quốc tế',
-    url: '#',
+    title: "Quốc tế",
+    url: "#",
   },
   {
-    title: 'Giáo dục',
-    url: '#',
+    title: "Giáo dục",
+    url: "#",
   },
   {
-    title: 'Kinh doanh',
-    url: '#',
+    title: "Kinh doanh",
+    url: "#",
   },
   {
-    title: 'Sức khỏe',
-    url: '#',
+    title: "Sức khỏe",
+    url: "#",
   },
   {
-    title: 'Văn hóa',
-    url: '#',
+    title: "Văn hóa",
+    url: "#",
   },
   {
-    title: 'Thể thao',
-    url: '#',
+    title: "Thể thao",
+    url: "#",
   },
   {
-    title: 'Công nghệ',
-    url: '#',
+    title: "Công nghệ",
+    url: "#",
   },
   {
-    title: 'Du lịch',
-    url: '#',
+    title: "Du lịch",
+    url: "#",
   },
 ];
 
@@ -47,7 +47,7 @@ const categoryElements = (data) => {
   let res = [];
   for (let key in data) {
     res.push(`
-    <a href="../../pages/NewslistPage.html" class="header__category-container header-item" data-value=${data[key].id}>
+    <a href="../../../midterm-demo/pages/NewslistPage.html" class="header__category-container header-item" data-value=${data[key].id}>
       ${data[key].label}
       <div class="header__category-tooltip tooltip">${data[key].label}</div>
     </a>
@@ -58,11 +58,11 @@ const categoryElements = (data) => {
 
 const MiddleHeader = `
     <div class="header__middle" id="sticky-header">
-        <a href="../../index.html" class="header__home-container header-item" data-value="home">
+        <a href="../../../midterm-demo/index.html" class="header__home-container header-item" data-value="home">
             <i class="fa-solid fa-house header__category"></i>
             <div class="header__category-tooltip tooltip">Home Page</div>
         </a>
-        ${categoryElements(CATEGORY).join('\n')}
+        ${categoryElements(CATEGORY).join("\n")}
     </div>
 `;
 

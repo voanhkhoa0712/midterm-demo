@@ -1,8 +1,11 @@
-import { loadHighlightDataOfType } from '../../utils/loadData.js';
-import { dataToNewsItemList } from '../../utils/createHtmlElements.js';
-import { CATEGORY, CONTEXT } from '../../utils/constants.js';
-import { headlineOfType } from '../../utils/createHeadline.js';
-import { HomepageHeadline, NewsListHeadline } from './Headline/Headline.js';
+import { loadHighlightDataOfType } from "../../../midterm-demo/utils/loadData.js";
+import { dataToNewsItemList } from "../../../midterm-demo/utils/createHtmlElements.js";
+import { CATEGORY, CONTEXT } from "../../../midterm-demo/utils/constants.js";
+import { headlineOfType } from "../../../midterm-demo/utils/createHeadline.js";
+import {
+  HomepageHeadline,
+  NewsListHeadline,
+} from "../../../midterm-demo/components/Highlight/Headline/Headline.js";
 
 const cateOfId = (id) => {
   let cateId = Number(id);
@@ -16,24 +19,28 @@ const cateOfId = (id) => {
       return CATEGORY[cates[i]];
     }
   }
-  return '';
+  return "";
 };
 
 // In case Homepage, type != navigator
 // else, type == navigator
-const Highlight = (type, tag = '') => {
+const Highlight = (type, tag = "") => {
   const data = loadHighlightDataOfType(type);
-  const navigator = Number(sessionStorage.getItem('navigator'));
+  const navigator = Number(sessionStorage.getItem("navigator"));
   const newsItemList = dataToNewsItemList(data, navigator);
 
   return `
    <div class="main__highlight grid-container">
-     ${navigator > CONTEXT.HOMEPAGE ? NewsListHeadline(cateOfId(type), tag) : HomepageHeadline(headlineOfType(type))}
-     ${newsItemList.join('\n')}
      ${
-       Number(sessionStorage.getItem('navigator')) === CONTEXT.HOMEPAGE
-         ? `<a href='../../pages/NewslistPage.html' class="see-more-btn" id="see-more-${type}">Xem thêm</a>`
-         : ''
+       navigator > CONTEXT.HOMEPAGE
+         ? NewsListHeadline(cateOfId(type), tag)
+         : HomepageHeadline(headlineOfType(type))
+     }
+     ${newsItemList.join("\n")}
+     ${
+       Number(sessionStorage.getItem("navigator")) === CONTEXT.HOMEPAGE
+         ? `<a href='../../../midterm-demo/pages/NewslistPage.html' class="see-more-btn" id="see-more-${type}">Xem thêm</a>`
+         : ""
      }
    </div>
     `;

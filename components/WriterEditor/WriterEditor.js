@@ -1,4 +1,4 @@
-import RoundButton from '../../../../components/RoundButton/RoundButton.js';
+import RoundButton from "../../../../../midterm-demo/components/RoundButton/RoundButton.js";
 
 const WriterEditor = `
     <div class="writer-editor">
@@ -26,17 +26,17 @@ const WriterEditor = `
             </div>
 
             ${RoundButton(
-              'button',
-              'strawberry-backgroundcolor writer-editor-button previewButton',
-              'previewButton',
-              'Xem trước',
+              "button",
+              "strawberry-backgroundcolor writer-editor-button previewButton",
+              "previewButton",
+              "Xem trước"
             )}
 
             ${RoundButton(
-              'button',
-              'strawberry-backgroundcolor writer-editor-button submitButton',
-              'submitButton',
-              'Gửi bài',
+              "button",
+              "strawberry-backgroundcolor writer-editor-button submitButton",
+              "submitButton",
+              "Gửi bài"
             )}
         </div>
 

@@ -1,4 +1,4 @@
-import { CONTEXT } from '../../../utils/constants.js';
+import { CONTEXT } from "../../../../midterm-demo/utils/constants.js";
 
 const previewIcon = `<div class="news-footer-icon-container news-preview-icon" id="preview">
     <i class="fa-solid fa-magnifying-glass-arrow-right news-footer-icon"></i>
@@ -34,13 +34,15 @@ const rejectIcon = `<div class="news-footer-icon-container news-reject-icon" id=
 // context: published and approved section in DashboardPage => render preview and feedback icon
 // context: waiting section in DashboardPage => render preview, edit and delete icon
 // context: rejected section in DashboardPage => render preview, edit, delete and feedback icon
-const NewsItemFooter = (context, date = '') => `
+const NewsItemFooter = (context, date = "") => `
     <div class="news-footer">
         ${
           context >= CONTEXT.HOMEPAGE || context <= CONTEXT.TOP10 // in homepage or in category or in
             ? `<div class="news-footer-icon-container" id="date">
                 <i class="fa-solid fa-clock news-footer-icon"></i>
-                <div class="tooltip news-footer-icon-tooltip">${date ? date : ''}</div>
+                <div class="tooltip news-footer-icon-tooltip">${
+                  date ? date : ""
+                }</div>
             </div>`
             : ``
         }
@@ -50,25 +52,27 @@ const NewsItemFooter = (context, date = '') => `
           context === CONTEXT.WAITING ||
           context === CONTEXT.REJECTED
             ? previewIcon
-            : ''
+            : ""
         }
         ${
-          context === CONTEXT.PUBLISHED || context === CONTEXT.REJECTED || context === CONTEXT.APPROVED
+          context === CONTEXT.PUBLISHED ||
+          context === CONTEXT.REJECTED ||
+          context === CONTEXT.APPROVED
             ? feedbackIcon
-            : ''
+            : ""
         }
         ${
           context === CONTEXT.WAITING || context === CONTEXT.REJECTED
             ? `${editIcon}
             ${deleteIcon}`
-            : ''
+            : ""
         }
         ${
-          context === 'editor'
+          context === "editor"
             ? `${previewIcon}
         ${approveIcon}
         ${rejectIcon}`
-            : ''
+            : ""
         }
     </div>
 `;
